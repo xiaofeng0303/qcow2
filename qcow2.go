@@ -12,6 +12,7 @@ type Qcow2 interface {
 
 	Version() int
 
+	Size() int64
 	Guest() (Guest, error)
 	ClusterSize() int
 
@@ -64,4 +65,8 @@ func (q *qcow2) refcounts() refcounts {
 
 func (q *qcow2) Version() int {
 	return q.header.version()
+}
+
+func (q *qcow2) Size() int64 {
+	return q.header.size()
 }
