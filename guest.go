@@ -139,7 +139,7 @@ type entryValidator func(mapEntry)
 //		       writing on return
 func (g *guestImpl) getEntry(validator entryValidator, off int64, writable bool) mapEntry {
 	oldEntry := mapEntry(g.io().ReadUint64(off))
-	validator(oldEntry)
+	//validator(oldEntry)
 	if !writable || oldEntry.writable() {
 		return oldEntry
 	}
